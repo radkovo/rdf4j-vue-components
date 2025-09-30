@@ -56,7 +56,7 @@ import { FilterMatchMode } from '@primevue/core/api';
 
 import { Parser, type Quad, type Term } from "n3";
 import { defineComponent, type PropType } from 'vue';
-import type { RdfValue, RdfValueBinding, QueryResult, SelectQueryResult, NamespaceDef } from '@/common/types';
+import type { RdfValueSpec, RdfValueBinding, QueryResult, SelectQueryResult, NamespaceDef } from '@/common/types';
 
 // parser for N3 construct queries 
 const n3Parser = new Parser({ format: 'N-Triples' })
@@ -177,7 +177,7 @@ export default defineComponent({
         /**
          * Transforms a quad part into a binding object with the appropriate type and datatype
          */
-        transformQuadPart(term: Term): RdfValue {
+        transformQuadPart(term: Term): RdfValueSpec {
             switch (term.termType) {
                 case 'Literal':
                     return {
@@ -201,7 +201,7 @@ export default defineComponent({
         /**
          * Formats a quad part into a string usable for searching and sorting
          */
-        formatQuadPart(term: Term, prefixes: NamespaceDef[]): RdfValue {
+        formatQuadPart(term: Term, prefixes: NamespaceDef[]): RdfValueSpec {
             let val = term.toString();
             // replace namespace with prefix if present
             prefixes.forEach((el) => {

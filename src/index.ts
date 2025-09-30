@@ -6,11 +6,10 @@ import RdfEditor from './components/RdfEditor.vue';
 import RdfIri from './components/RdfIri.vue';
 import RdfValue from './components/RdfValue.vue';
 
-import { type ApiClient, DefaultApiClient } from './common/apiclient';
-import IriDecoder from './common/iridecoder';
+export { type ApiClient, DefaultApiClient } from './common/apiclient';
+export { default as IriDecoder } from './common/iridecoder';
 
-//export * from './common/iridecoder';
-//export * from './common/types';
+export * from './common/types';
 
 export {
     ContextTable,
@@ -19,9 +18,5 @@ export {
     QueryResults,
     RdfEditor,
     RdfIri,
-    RdfValue,
-
-    type ApiClient,
-    DefaultApiClient,
-    IriDecoder
+    RdfValue
 };

@@ -17,6 +17,7 @@ import IriDecoder from './iridecoder.js';
 
 export interface ApiClient {
     serverUrl: string;
+	serverLogin: string | null;
     currentRepo: string;
     onNotAuthorized: (() => void) | null;
 
@@ -26,7 +27,7 @@ export interface ApiClient {
     getSubjectDescription(iri: string): Promise<SelectQueryResult>;
     getSubjectReferences(iri: string): Promise<SelectQueryResult>;
     getSubjectMentions(iri: string): Promise<SelectQueryResult>;
-    getSubjectValue(subjectIri: string, propertyIri: string): Promise<RdfValue>;
+    getSubjectValue(subjectIri: string, propertyIri: string): Promise<RdfValueSpec>;
     selectQuery(query: string, limit?: number): Promise<SelectQueryResult>;
     askQuery(query: string, limit?: number): Promise<AskQueryResult>;
     constructQuery(query: string, accept: string, limit?: number): Promise<string>;
@@ -45,7 +46,7 @@ export interface ApiClient {
     toObjectArray(bindings: RdfValueBinding[]): object[];
 }
 
-import type { AskQueryResult, ContextDescription, RdfValue, RdfValueBinding, RepositoryInfo, SavedQuery, SelectQueryResult, UpdateQueryResult } from './types.js';
+import type { AskQueryResult, ContextDescription, RdfValueSpec, RdfValueBinding, RepositoryInfo, SavedQuery, SelectQueryResult, UpdateQueryResult } from './types.js';
 import { errMsg } from './utils.js';
 
 /**
@@ -192,7 +193,7 @@ export class DefaultApiClient implements ApiClient {
         return await this.selectQuery(query);
 	}
 
-    async getSubjectValue(subjectIri: string, propertyIri: string): Promise<RdfValue> {
+    async getSubjectValue(subjectIri: string, propertyIri: string): Promise<RdfValueSpec> {
 		const url = this.repositoryEndpoint() + '/subject/' + encodeURIComponent(subjectIri) + '/' + encodeURIComponent(propertyIri);
 		let response = await fetch(url, {
 			method: 'GET',

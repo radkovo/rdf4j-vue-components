@@ -10,7 +10,8 @@ export default defineConfig({
   plugins: [
     dts({ 
       tsconfigPath: './tsconfig.app.json',
-      rollupTypes: true
+      rollupTypes: true,
+      insertTypesEntry: true
     }),
     vue()
   ],
@@ -30,13 +31,15 @@ export default defineConfig({
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
-      external: ['vue', 'primevue', 'n3', 'prismjs','sparqljs', 'vue-prism-editor'],
+      external: ['vue', 'primevue', 'primeicons', '@primevue/themes', 'n3', 'prismjs','sparqljs', 'vue-prism-editor'],
       output: {
         // Provide global variables to use in the UMD build
         // for externalized deps
         globals: {
           vue: 'Vue',
           primevue: 'PrimeVue',
+          primeicons: 'PrimeIcons',
+          '@primevue/themes': 'PrimeVueThemes',
           n3: 'N3',
           prismjs: 'Prism',
           sparqljs: 'SparqlJS',

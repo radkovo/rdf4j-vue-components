@@ -1,5 +1,5 @@
 {
-  "name": "rdf4j-vue-components",
+  "name": "@burgetr/rdf4j-vue-components",
   "version": "0.1.0",
   "private": false,
   "type": "module",

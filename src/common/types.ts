@@ -8,7 +8,7 @@ export interface ContextDescription {
 /**
  * A single binding for a variable in a SPARQL query result.
  */
-export type RdfValueBinding = { [key: string]: RdfValue };
+export type RdfValueBinding = { [key: string]: RdfValueSpec };
 
 /**
  * RDF4J SELECT query result.
@@ -34,7 +34,7 @@ export interface UpdateQueryResult {
 /**
  * A RDF value returned by the RDF4J API.
  */
-export interface RdfValue {
+export interface RdfValueSpec {
     datatype?: string;
     type: string;
     value: string;
@@ -102,7 +102,7 @@ export type QueryResult =
  * be used for presenting the value in a specific way.
  */
 export interface DisplayValue {
-    v: RdfValue;  // the value itself
-    p?: RdfValue; // optional predicate
-    s?: RdfValue; // optional subject
+    v: RdfValueSpec;  // the value itself
+    p?: RdfValueSpec; // optional predicate
+    s?: RdfValueSpec; // optional subject
 }
