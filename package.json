@@ -14,7 +14,8 @@
       "types": "./dist/rdf4j-vue-components.d.ts",
       "import": "./dist/rdf4j-vue-components.js",
       "require": "./dist/rdf4j-vue-components.umd.cjs"
-    }
+    },
+    "./style.css": "./dist/rdf4j-vue-components.css"
   },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
