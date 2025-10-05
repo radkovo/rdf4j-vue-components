@@ -83,10 +83,11 @@ import QueryList from './QueryList.vue';
 import Sparqljs, { type SparqlParser } from 'sparqljs';
 import { Popover, type PopoverMethods } from 'primevue';
 
+import { type ApiClient } from '../common/apiclient';
+import type { SavedQuery } from '../common/types';
+import { errMsg } from '../common/utils';
+
 import { defineComponent, inject } from 'vue';
-import { type ApiClient } from '@/common/apiclient';
-import type { SavedQuery } from '@/common/types';
-import { errMsg } from '@/common/utils';
 
 export default defineComponent({
     name: 'RdfEditor',

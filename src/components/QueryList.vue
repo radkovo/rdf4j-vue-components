@@ -32,8 +32,9 @@ import InputText from 'primevue/inputtext';
 import ConfirmDialog from 'primevue/confirmdialog';
 
 import {FilterMatchMode} from '@primevue/core/api';
-import { type ApiClient } from '@/common/apiclient';
-import type { SavedQuery } from '@/common/types';
+import { type ApiClient } from '../common/apiclient';
+import type { SavedQuery } from '../common/types';
+
 import { defineComponent, inject } from 'vue';
 
 export default defineComponent({

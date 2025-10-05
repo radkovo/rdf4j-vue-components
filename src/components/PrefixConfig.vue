@@ -12,8 +12,8 @@
 <script lang="ts">
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
-import type { ApiClient } from '@/common/apiclient';
-import type { NamespaceDef } from '@/common/types';
+import type { ApiClient } from '../common/apiclient';
+import type { NamespaceDef } from '../common/types';
 
 import { defineComponent, inject } from 'vue';
 

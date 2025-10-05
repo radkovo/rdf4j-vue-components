@@ -63,9 +63,9 @@ import InputText from 'primevue/inputtext';
 import Message from 'primevue/message';
 
 import {FilterMatchMode} from '@primevue/core/api';
-import type { ContextDescription } from '@/common/types';
 import type { MenuItem } from 'primevue/menuitem';
-import { type ApiClient } from '@/common/apiclient';
+import type { ContextDescription } from '../common/types';
+import { type ApiClient } from '../common/apiclient';
 
 import { defineComponent, inject } from 'vue';
 

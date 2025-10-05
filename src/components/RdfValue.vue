@@ -20,11 +20,11 @@
 </template>
 
 <script lang="ts">
-import { type ApiClient } from '@/common/apiclient';
+import { type ApiClient } from '../common/apiclient';
 import RdfIri from './RdfIri.vue';
 
 import { defineComponent, inject, type PropType } from 'vue';
-import type {  DisplayValue } from '@/common/types';
+import type {  DisplayValue } from '../common/types';
 
 export default defineComponent({
 	name: 'RdfValue',

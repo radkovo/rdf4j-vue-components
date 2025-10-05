@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import type { ApiClient } from '@/common/apiclient';
+import type { ApiClient } from '../common/apiclient';
 import { defineComponent, inject } from 'vue';
 
 export default defineComponent({
