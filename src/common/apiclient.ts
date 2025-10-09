@@ -372,6 +372,7 @@ export class DefaultApiClient implements ApiClient {
             }
 			return ret;
 		} catch (e) {
+			console.log('Error listing repositories:', { e: e });
 			throw new Error(errMsg(e));
 		}		
 	}
@@ -430,7 +431,7 @@ export class DefaultApiClient implements ApiClient {
 			if (this.onNotAuthorized) {
 				this.onNotAuthorized();
 			}
-			return false;
+			throw new Error('Authentication failed');
 		} else {
 			return true;
 		}
